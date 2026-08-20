@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3eee3">
+  <title>Piccolo mondo | Miso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Torna all'inizio">
+        <span class="brand-mark">✦</span>
+        <span>piccolo mondo</span>
+      </a>
+      <div class="topbar-meta">
+        <span class="day-pill"><span class="live-dot"></span><span id="day-label">giorno 1</span></span>
+        <button class="icon-button" id="reset-button" type="button" aria-label="Ricomincia da capo" title="Ricomincia da capo">↺</button>
+      </div>
+    </header>
+
+    <section class="intro" id="top">
+      <div>
+        <p class="eyebrow">IL TUO ANIMALE DIGITALE</p>
+        <h1>Ogni giorno<br><em>un po’ più grande.</em></h1>
+      </div>
+      <p class="intro-copy">Prenditi cura di Miso, ascolta di cosa ha bisogno e costruite insieme una piccola routine.</p>
+    </section>
+
+    <section class="dashboard" aria-label="Stato di Miso">
+      <div class="pet-stage">
+        <div class="stage-sun" aria-hidden="true"></div>
+        <div class="stage-note">oggi sta bene <span>↗</span></div>
+        <div class="game-mode-badge" id="game-mode-badge">modalità gioco <strong>ON</strong></div>
+        <button class="game-exit" id="game-exit" type="button">esci dal gioco <span>×</span></button>
+        <div class="pet-scene" id="pet-scene">
+          <div class="pet-shadow"></div>
+          <div class="pet" id="pet" role="button" tabindex="0" aria-label="Coccola Miso, la tua volpina">
+            <img class="pet-image" src="miso-cutout.png" alt="Miso, la volpina arancione">
+            <span class="ear ear-left"></span><span class="ear ear-right"></span>
+            <span class="tail"></span><span class="fox-muzzle"></span>
+            <span class="pet-face"><i></i><i></i><b></b></span>
+            <span class="pet-blush blush-left"></span><span class="pet-blush blush-right"></span>
+          </div>
+          <div class="pet-name">Miso <span>•</span></div>
+          <div class="pet-mood" id="pet-mood">si sente amato</div>
+          <div class="play-hint" id="play-hint">tocca Miso per coccolarlo</div>
+        </div>
+        <div class="stage-footer"><span>livello <strong id="level-number">1</strong></span><span class="xp-track"><i id="xp-bar"></i></span><span id="xp-label">20 / 100 xp</span><span class="weight-counter">peso <strong id="weight-value">3.4 kg</strong></span></div>
+      </div>
+
+      <div class="care-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">COME STA</p><h2>Le sue necessità</h2></div>
+          <span class="heart-rate">♥ <span id="care-score">86%</span></span>
+        </div>
+        <div class="needs" id="needs-list"></div>
+        <div class="illness-alarm" id="illness-alarm" hidden><span class="alarm-icon">!</span><span><strong>Malattia</strong><small>Miso non si sente bene</small></span></div>
+        <div class="divider"></div>
+        <div class="panel-heading action-heading"><div><p class="eyebrow">UN GESTO ALLA VOLTA</p><h2>Prenditene cura</h2></div></div>
+        <div class="actions" id="actions-list"></div>
+        <p class="feedback" id="feedback" aria-live="polite">Miso aspetta il prossimo gesto gentile.</p>
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <div class="journal-section">
+        <div class="section-title"><div><p class="eyebrow">PICCOLO DIARIO</p><h2>I momenti di oggi</h2></div><span class="moment-count" id="moment-count">0 momenti</span></div>
+        <div class="journal" id="journal"></div>
+      </div>
+      <aside class="streak-card">
+        <div class="streak-icon">✺</div>
+        <p class="eyebrow">COSTANZA</p>
+        <strong><span id="streak-number">1</span> giorno<br>insieme</strong>
+        <p>La cura quotidiana crea fiducia. Torna domani per continuare.</p>
+        <div class="week-dots" aria-label="Settimana di cura"><i class="active">L</i><i>M</i><i>M</i><i>G</i><i>V</i><i>S</i><i>D</i></div>
+      </aside>
+    </section>
+    <footer><span>fatto con cura per Miso</span><span>salvataggio automatico attivo</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
