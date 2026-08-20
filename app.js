@@ -28,6 +28,7 @@ const pet = document.querySelector('#pet');
 const petScene = document.querySelector('#pet-scene');
 const petStage = document.querySelector('.pet-stage');
 let playMode = false;
+let activeBall = null;
 
 function loadState() {
   try {
@@ -119,6 +120,7 @@ function render() {
   document.querySelector('#weight-value').textContent = `${state.peso.toFixed(1)} kg`;
   document.querySelector('#streak-number').textContent = state.streak;
   document.querySelector('#pet-mood').textContent = isSleeping() ? 'sta facendo un sonnellino' : score > 80 ? 'si sente amato' : score > 50 ? 'ti cerca un po’' : 'ha bisogno di te';
+  document.querySelector('#play-hint').textContent = isSleeping() ? 'tocca Miso per svergliarlo' : 'tocca Miso per coccolarlo';
   document.querySelector('#illness-alarm').hidden = !state.malattia;
   pet.classList.toggle('sick', state.malattia);
   updateSleepButton();
@@ -191,7 +193,9 @@ function cuddle() {
 }
 
 function launchBall(clientX, clientY) {
+  if (activeBall) return false;
   const ball = document.createElement('span');
+  activeBall = ball;
   ball.className = 'ball';
   const sceneRect = petScene.getBoundingClientRect();
   const petRect = pet.getBoundingClientRect();
@@ -211,7 +215,8 @@ function launchBall(clientX, clientY) {
   state.moments.unshift({ icon: '●', label: 'gioco', time: timeNow() });
   saveState();
   render();
-  setTimeout(() => ball.remove(), 1400);
+  setTimeout(() => { ball.remove(); activeBall = null; }, 1400);
+  return true;
 }
 
 document.querySelector('#reset-button').addEventListener('click', () => {
@@ -220,8 +225,7 @@ document.querySelector('#reset-button').addEventListener('click', () => {
 
 petStage.addEventListener('click', event => {
   if (!playMode || event.target.closest('.game-exit')) return;
-  launchBall(event.clientX, event.clientY);
-  feedback.textContent = 'Miso ha preso la pallina ed è tornato da te!';
+  if (launchBall(event.clientX, event.clientY)) feedback.textContent = 'Miso ha preso la pallina ed è tornato da te!';
 });
 pet.addEventListener('click', event => { if (!playMode) { cuddle(); event.stopPropagation(); } });
 pet.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); cuddle(); } });
