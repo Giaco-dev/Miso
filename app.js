@@ -13,7 +13,7 @@ const defaultState = {
 const actions = [
   { id: 'nutri', icon: '✿', label: 'Nutri', detail: '+ fame · + peso', need: 'fame', amount: 18, message: 'Miso fa le fusa: era proprio ora di mangiare.' },
   { id: 'gioca', icon: '●', label: 'Gioca', detail: '- peso · lancia la pallina', need: 'felicita', amount: 12, message: 'Miso corre a prendere la pallina!' },
-  { id: 'pausa', icon: 'Ⅱ', label: 'Pausa', detail: 'sonnellino · 2 ore', need: 'energia', amount: 24, message: 'Miso si è acciambellato. Il sonnellino durerà almeno 2 ore.' },
+  { id: 'pausa', icon: '☾', label: 'Pausa', detail: 'sonnellino · 2 ore', need: 'energia', amount: 24, message: 'Miso si è acciambellato. Il sonnellino durerà almeno 2 ore.' },
   { id: 'veterinario', icon: '+', label: 'Veterinario', detail: 'cura Miso · -10 xp', need: null, amount: 0, message: 'Il veterinario ha visitato Miso. Ora può riposare e stare meglio.' }
 ];
 
